@@ -90,4 +90,40 @@ document.body.appendChild( myDataList );
  // Get by ID:
 var myHeading = document.getElementById( "my-heading" );
 myHeading.title = "this is a heading.";
-myHeading.style.color = "darkgray"; // PLEASE avoid using inline styles... this is the CSS file's job!
+// myHeading.style.color = "darkgray"; // PLEASE avoid using inline styles... this is the CSS file's job!
+myHeading.className = "grey-text"; // Use classes instead!
+
+/**
+ * Events!
+ */
+
+ // We can add event-listeners to a targeted element
+ myHeading.addEventListener( "mouseover"/* Here we say which event we are targeting */,
+ function ( event/*We can capture info about this event*/ ) {
+ this.className = "salmon-text"; /* In an event, the "this" keyboard represents our element (myHeading). */
+ } );
+
+ // When you stop hovering...
+ myHeading.addEventListener( "mouseleave", function ( event ) {
+        this.className = "indigo-text";
+ } );
+
+  // When you stop hovering...
+ myHeading.addEventListener( "click", function ( event ) {
+    var bigClass = "big-text"; // Check if it already has it 
+    if ( !this.className.includes( bigClass ) )
+    this.className += " big-text "; // Concatenating a new class!
+    // Remember, you must have a space between classes when assigning multiple.
+ } );
+
+ /**
+  * Let's make a function!
+  */
+
+  // Function keyword, followed by the function name (and parameters if any are needed)
+  function addTwoNumbers ( x, y )
+  {
+      x = Number( x ); // Enforce data-type (number)
+      y = Number( y ); // Enforce data-type (number)
+      return ( x + y ); // Add the two together
+  }

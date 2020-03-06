@@ -1,1 +1,17 @@
-/* * { background: red; }        Testing
+ /* * { background: red; }        Testing */
+
+.gray-text {
+    color: darkgray;
+}
+
+.salmon-text {
+    color: salmon;
+}
+
+.indigo-text {
+    color: indigo;
+}
+
+.big-text {
+    font-size: 2.25rem;
+}
