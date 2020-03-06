@@ -127,3 +127,19 @@ myHeading.className = "grey-text"; // Use classes instead!
       y = Number( y ); // Enforce data-type (number)
       return ( x + y ); // Add the two together
   }
+
+  function currentDayString ()
+  {
+    var date = new Date();
+      var dateString = "";
+      dateString += date.getFullYear();
+      dateString += ".";
+      dateString += ( date.getMonth() + 1);
+      dateString += "."
+      dateString += ( date.getDay() + 1);
+      return dateString;
+  } 
+
+  // Output to console.
+  console.log( "The current date is: \r\n" + currentDayString() ); 
+  // \r\n is return/newline - this will now output on TWO lines in your console.
