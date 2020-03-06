@@ -82,3 +82,12 @@ document.body.innerHTML += `<!-- Back icks are used in JS for multi-line strings
 
 // Add ALL of that to the body! We should be able to see it now!
 document.body.appendChild( myDataList );
+
+/**
+ * Collecting elements.
+ */
+
+ // Get by ID:
+var myHeading = document.getElementById( "my-heading" );
+myHeading.title = "this is a heading.";
+myHeading.style.color = "darkgray"; // PLEASE avoid using inline styles... this is the CSS file's job!
