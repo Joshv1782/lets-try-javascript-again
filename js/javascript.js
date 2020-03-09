@@ -149,7 +149,34 @@ myHeading.className = "grey-text"; // Use classes instead!
    */
 
    // check for equivalency (type-agnostic)
-   console.log( 1 == true );
+   console.log( 1 == true ); // True
+   console.log( "Hello, World!" == true ); // True
+   console.log( -137 == true ); // Flase
+   console.log( "test" == "test" ); // True
+   console.log( 36 =="36" ); // True
+   console.log( 0 == false ); // False
+   console.log( "test string" == "test string")
 
    // check if identical (value comparison including type)
-   console.log( 1== true );
+   console.log( 1=== true ); // False
+   console.log( "" === true ); // Flase
+   console.log( -137 == true ); // False
+   console.log( "test" === "test" ); // True
+   console.log( 36 ==="36" ); // Flase
+   console.log( 0 === false ); // False
+
+   /**
+    * Hamburger menu
+    */
+   
+    // Let's grab out menu...
+  var MyNav = document.querySelector( "nav" );
+
+  // And our menu button...
+  var myNavButton = document.querySelector( ".menu-button" );
+
+  // Let's listen for a click on this
+  myNavButton.addEvenetListener( "click", function (event) {
+      // When clicked, add/remove the "nav-open" class (in HTML)
+    myNavButton.classList.toggle( "nav-open" );
+  } );
