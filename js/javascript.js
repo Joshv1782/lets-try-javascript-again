@@ -143,3 +143,13 @@ myHeading.className = "grey-text"; // Use classes instead!
   // Output to console.
   console.log( "The current date is: \r\n" + currentDayString() ); 
   // \r\n is return/newline - this will now output on TWO lines in your console.
+
+  /**
+   * Let's review some condidtions-rekated operators
+   */
+
+   // check for equivalency (type-agnostic)
+   console.log( 1 == true );
+
+   // check if identical (value comparison including type)
+   console.log( 1== true );
