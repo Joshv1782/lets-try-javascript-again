@@ -181,3 +181,92 @@ myNavButton.addEventListener( 'click', function ( event ) {
     // When clicked, add/remove the "nav-open" class (in HTML.)
     myNav.classList.toggle( 'nav-open' );
 } );
+
+/**
+ * Let's dig in to objects!
+ */
+
+ /* JavaScript Object Notation (JSON) */
+ var myObject = { /* Valid JSON format. */
+    name:    'Jerry',
+    age:     61,
+    hobbies: [
+        'snowboarding',
+        'action movies'
+    ]
+};
+
+// Read whole object.
+console.log( myObject );
+
+// Extracting property values...
+console.log( 'Object "name": ' + myObject.name );
+console.log( 'Object "age": ' + myObject.age );
+console.log( 'Object "hobbies": ' + myObject.hobbies[0] + ', ' + myObject.hobbies[1] );
+
+// Lets add to the hobbies array... just like normal! It is an array, afterall.
+// (Just stored in an object property instead of a variable this time.)
+myObject.hobbies.push( 'programming' );
+console.log( 'Updated hobbies:' );
+console.log( myObject.hobbies );
+
+console.log( 'Updated object:' );
+console.log( myObject );
+
+/**
+ * Let's ramp things up a bit with a method.
+ */
+
+var newObject = {
+    myNum:     5, // Property.
+    updateNum: function () { // Here is a method! Note the new syntax, versus a function.
+        // Difference from a function?
+        this.myNum = this.myNum + 5;
+        return this.myNum;
+    }
+};
+
+/**
+ * Object constructors.
+ */
+
+// Here is our blueprint for "Person" objects.
+function Person ( name, age, hobbies ) {
+    this.name    = name;
+    this.age     = age;
+    this.hobbies = hobbies;
+}
+
+// Let's make a new instance of "Person!" This is called an object.
+var jerry = new Person( 'Jerry', 61, ['snowboarding', 'action movies', 'programming'] );
+
+// And another! Isn't this easier than typing out a whole object /every/ time!?
+var sally = new Person(
+    'Sally', // name:
+    36, // age:
+    [ // hobbies:
+        'daredevil biking',
+        'skydiving',
+        'teaching'
+    ]
+);
+
+// We can add to the blueprint using "prototype", even after its initial declaration.
+Person.prototype.introduction = function () { // This is a method in our "Person" blueprint/prototype/class!
+    var hobbiesString = '<ul>'; // Set up for list HTML.
+    this.hobbies.forEach( function ( value, index ) { // Looping through an array.
+        hobbiesString += '<li>' + value + '</li>'; // Loop through our hobbies and make a list item for each.
+    } );
+    hobbiesString += '</ul>'; // We opened a UL in this string, so lets close it! (Concatenation!)
+
+    // Add HTML to the body.
+    document.body.innerHTML += `
+        <h2>` + this.name + `</h2>
+        <dl><!-- My name is: ` + this.name + ` -->
+            <dt>Age</dt>
+            <dd>` + this.age + `</dd>
+            <dt>Hobbies</dt>
+            <dd>` + hobbiesString /* We built the string above, using this.hobbies! "hobbiesString" is a local variable (born in the method, and it will die in the method.) */ + `</dd>
+        </dl>
+    `;
+}
